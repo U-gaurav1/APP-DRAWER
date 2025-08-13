@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App Drawer</title>
+    <style>
+        body {
+            background-color: #121212;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .drawer {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .drawer a {
+            text-decoration: none;
+            color: white;
+            text-align: center;
+        }
+        .drawer img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background-color: #1e1e1e;
+            padding: 10px;
+            transition: transform 0.2s;
+        }
+        .drawer img:hover {
+            transform: scale(1.1);
+        }
+        span {
+            display: block;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📱 My App Drawer</h1>
+    <div class="drawer" id="drawer"></div>
+
+    <script>
+        const apps = [
+            {
+                name: "X0",
+                icon: "x0.png",
+                url: "https://u-gaurav1.github.io/xo/"
+            },
+            // Add more apps here:
+            // { name: "AppName", icon: "iconfile.png", url: "AppURL" }
+        ];
+
+        const drawer = document.getElementById("drawer");
+
+        apps.forEach(app => {
+            const a = document.createElement("a");
+            a.href = app.url;
+            a.target = "_blank";
+
+            const img = document.createElement("img");
+            img.src = app.icon;
+            img.alt = app.name;
+
+            const span = document.createElement("span");
+            span.textContent = app.name;
+
+            a.appendChild(img);
+            a.appendChild(span);
+            drawer.appendChild(a);
+        });
+    </script>
+</body>
+</html>
